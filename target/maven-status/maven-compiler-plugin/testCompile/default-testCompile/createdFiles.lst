@@ -1,0 +1,4 @@
+org\example\cards\constants\API.class
+org\example\cards\model\ShuffleCards.class
+org\example\cards\model\Card.class
+org\example\cards\tests\CardsTest.class
