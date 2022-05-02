@@ -55,10 +55,9 @@ public class DeckCards {
     }
 
     public void printCards(String pileName, List<Card> cards) {
-        for (Card card : cards) {
-            String pile = String.format("%s: %s - %s", pileName, card.getValue(), card.getSuit());
-            System.out.println(pile);
-        }
+        cards.stream()
+                .map(card -> String.format("%s: %s - %s", pileName, card.getValue(), card.getSuit()))
+                .forEach(System.out::println);
     }
 
 }
