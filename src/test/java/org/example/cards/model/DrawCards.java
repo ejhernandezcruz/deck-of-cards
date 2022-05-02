@@ -4,12 +4,16 @@ package org.example.cards.model;
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
-public class ShuffleCards {
+public class DrawCards {
 
     private boolean success;
     @SerializedName(value = "deck_id")
     private String deckId;
-    private boolean shuffled;
-    private Integer remaining;
+    private List<Card> cards;
+    private int remaining;
+    private String error;
+
 }
