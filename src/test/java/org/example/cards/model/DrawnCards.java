@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class DrawCards {
+public class DrawnCards {
 
     private boolean success;
     @SerializedName(value = "deck_id")

@@ -6,7 +6,7 @@ import io.restassured.specification.RequestSpecification;
 import lombok.extern.slf4j.Slf4j;
 import org.example.cards.constants.API;
 import org.example.cards.model.Card;
-import org.example.cards.model.DrawCards;
+import org.example.cards.model.DrawnCards;
 import org.example.cards.model.ShuffleCards;
 
 import java.util.List;
@@ -33,10 +33,10 @@ public class DeckCards {
         return response.jsonPath().getObject("$", ShuffleCards.class);
     }
 
-    public DrawCards drawnCards(String deck, int numberOfCards) {
+    public DrawnCards drawnCards(String deck, int numberOfCards) {
         String resource = String.format("/deck/%s/draw/?count=%s", deck, numberOfCards);
         Response response = requestDeckOfCards(resource);
-        return response.jsonPath().getObject("$", DrawCards.class);
+        return response.jsonPath().getObject("$", DrawnCards.class);
     }
 
     public void createPile(String pileName, String deck, List<Card> cards) {

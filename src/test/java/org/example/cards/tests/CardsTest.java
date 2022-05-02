@@ -4,7 +4,7 @@ import com.google.common.truth.Truth;
 import lombok.extern.slf4j.Slf4j;
 import org.example.cards.api.DeckCards;
 import org.example.cards.model.Card;
-import org.example.cards.model.DrawCards;
+import org.example.cards.model.DrawnCards;
 import org.example.cards.model.ShuffleCards;
 import org.testng.ITestContext;
 import org.testng.annotations.Test;
@@ -48,10 +48,10 @@ public class CardsTest {
         Truth.assertThat(player2PileCards.size()).isEqualTo(NUMBER_OF_CARDS);
     }
 
-    @Test(testName = "Not enough cards (negative case",priority = 3)
+    @Test(testName = "Not enough cards (negative case)", priority = 3)
     public void notEnoughCardsTest(ITestContext context){
         String deckId = (String) context.getAttribute(DECK_KEY);
-        DrawCards drawCards = deckCards.drawnCards(deckId, INITIAL_NUMBER_OF_CARDS);
+        DrawnCards drawCards = deckCards.drawnCards(deckId, INITIAL_NUMBER_OF_CARDS);
         Truth.assertThat(drawCards.isSuccess()).isFalse();
         Truth.assertThat(drawCards.getDeckId()).isEqualTo(deckId);
         Truth.assertThat(drawCards.getRemaining()).isEqualTo(0);
